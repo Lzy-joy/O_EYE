@@ -9,23 +9,28 @@
     @Override
     public void onCreate() {
         super.onCreate();
-
+        //初始化并注册监听器
         O_EYE.getInstance(this).init(new O_EYEListener() {
             @Override
             public void switchToForeground() {
-                Toast.makeText(MyApplication.this, "APP切换至前台", Toast.LENGTH_SHORT).show();
+                //TODO：切换到前台：do your things
+                Toast.makeText(MyApplication.this, "App切换到前台", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void switchToBackground() {
-                Toast.makeText(MyApplication.this, "App切换至后台", Toast.LENGTH_SHORT).show();
+                //TODO：切换到后台：do your things
+                Toast.makeText(MyApplication.this, "App切换到后台", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+
     @Override
     public void onTerminate() {
         super.onTerminate();
+        //反注册监听器
+        O_EYE.getInstance(this).unregister();
     }
 }
 </code></pre>
